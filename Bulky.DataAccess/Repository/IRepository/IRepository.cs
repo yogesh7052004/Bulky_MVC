@@ -10,8 +10,8 @@ namespace Bulky.DataAccess.Repository.IRepository
     public interface IRepository<T> where T : class
     {
         //T - Category
-        IEnumerable<T> GetAll();
-        T Get(Expression<Func<T, bool>> filter); //for writing Linq operations
+        IEnumerable<T> GetAll(string? includeProperties = null);
+        T Get(Expression<Func<T, bool>> filter, string? includeProperties = null); //for writing Linq operations
         void Add(T entity);
         //void Update(T entity); we dont want to inclide this sometimes we may have different logic for updating such as only specific fields like that so recommended to not put this here.
         void Remove(T entity);
